@@ -1,2 +1,13 @@
-# LoadTestJMeter
-Run JMeter load test in Jenkins
+# Run JMeter load test in Jenkins
+
+- Run start.bat
+- Copy token, it's needed in next step
+- Open url http://localhost:8080/ and put the token
+- Install suggested plugins 
+- Config new user
+- Go to "Manage Jenkins" -> "Manage Plugins" and install Performance plugins
+- Create new Job as a Freestyle project
+- Add Build step -> Execute shell:
+    Command: /home/apache-jmeter-5.1.1/bin/jmeter -n -t /home/jmeterTest/loadTest.jmx -l /home/jmeterResult/report.jtl
+- Add Post-build Actions -> Publish Performance test result report:
+    Source data files: /home/jmeterResult/report.jtl
