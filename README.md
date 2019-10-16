@@ -11,3 +11,4 @@
     Command: /home/apache-jmeter-5.1.1/bin/jmeter -n -t /home/jmeterTest/loadTest.jmx -l /home/jmeterResult/report.jtl
 - Add Post-build Actions -> Publish Performance test result report:
     Source data files: /home/jmeterResult/report.jtl
+- Now you can run your build
