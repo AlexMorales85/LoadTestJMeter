@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  jenkins:
+    build:
+      context: jenkins/
+    volumes:
+      - type: volume
+        source: jenkins
+        target: /var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks: 
+      - loadtests
+  
+  web:
+    build:
+      context: web/
+    networks: 
+      - loadtests
+
+networks:
+  loadtests:
+    driver: bridge
+
+volumes:
+  jenkins:
