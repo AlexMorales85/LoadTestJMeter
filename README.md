@@ -1,5 +1,6 @@
 # Run JMeter load test in Jenkins
 
+- Update Java binaries path in start.bat
 - Run start.bat
 - Copy token, it's needed in next step
 - Open url http://localhost:8080/ and put the token
