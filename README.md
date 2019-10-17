@@ -8,7 +8,9 @@
 - Go to "Manage Jenkins" -> "Manage Plugins" and install Performance plugins
 - Create new Job as a Freestyle project
 - Add Build step -> Execute shell:
-    Command: /home/apache-jmeter-5.1.1/bin/jmeter -n -t /home/jmeterTest/loadTest.jmx -l /home/jmeterResult/report.jtl
+    Command: 
+        cd /home/apache-jmeter-5.1.1/bin/
+        ./jmeter -n -f -t /home/jmeterTest/loadTest.jmx -l /home/jmeterResult/report.jtl -R jmeterserver1,jmeterserver2
 - Add Post-build Actions -> Publish Performance test result report:
     Source data files: /home/jmeterResult/report.jtl
 - Now you can run your build

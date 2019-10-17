@@ -2,6 +2,7 @@ version: '3.7'
 
 services:
   jenkins:
+    image: jenkinswithjmeter
     build:
       context: jenkins/
     volumes:
@@ -13,8 +14,21 @@ services:
       - "50000:50000"
     networks: 
       - loadtests
+
+  jmeterserver1:
+    image: jmeter
+    build:
+      context: jmeter/
+    networks: 
+      - loadtests
+  
+  jmeterserver2:
+    image: jmeter
+    networks: 
+      - loadtests
   
   web:
+    image: web
     build:
       context: web/
     networks: 
